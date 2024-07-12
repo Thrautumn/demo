@@ -1,0 +1,190 @@
+/* 利用全局属性，提高代码简洁度 */
+/* 定义全局属性利用root伪类选择器（其实就是html，但是优先级比html高） */
+/* 首先 */
+:root {
+    --border-color : black;
+    --font-color: black;
+    --background-color: white;
+}
+
+/* 下面定义显示密码以后的样式，相当于一个关灯特效 */
+/* 定义一个类名 .show-password */
+/* 可以把这个类名加给body，利用js来切换 */
+.show-password {
+    --border-color: white;
+    --font-color: white;
+    --background-color: black;
+}
+
+
+/* #region 布局 */
+* {
+    box-sizing: border-box;
+    transition: 0.2s linear all;
+}
+
+body {
+    /* 背景图比较特殊，在黑色背景下能显现stars */
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./f5b992dd83a4c6b50028e5fc1913c636266664645.png@1256w_728h_!web-article-pic\ \(1\).avif);
+    background-size: cover;
+}
+form {
+    transform: translate3d(0,0,0);
+    border: 20px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #00000065;
+    padding: 30px 50px 30px 50px;
+}
+.item {
+    margin: 15px 0px;
+}
+.wrapper {
+    position: relative;
+} 
+/* #endregion */
+
+
+/* 设置字体大小 */
+/* 并且他们在以后的交互当中会改变颜色，所以要利用全局变量 */
+label,
+input,
+button {
+    font-size: 2rem;
+    color: var(--font-color);
+}
+.login {
+    font-weight: bold;
+    font-size: 4rem;
+    color: var(--font-color);
+}
+input {
+    width: 100% ;
+    margin-top: 5px;
+    padding: 0.75rem 5rem 0.75rem 0.75rem;
+    /* 对于盒子阴影，可以设置多组数值，控制不同位置的阴影；组与组之间用","隔开 */
+    box-shadow: 0px 0px 0px 2px black inset,/* 利用阴影将输入框的边框加粗 ，而不改变其本身的border值 */
+                3px 3px 1px 2px rgba(30, 144, 255, 0.2), /* 设置input框外部的阴影 */
+                2px 2px 1px 4px rgba(30, 144, 255, 0.2) inset ;/*设置输入框内部的阴影 */
+    background-color: transparent;
+} 
+input:focus {
+    outline-offset: 2px;
+}
+/* 密码框颜色始终为黑 */
+label[id=password],
+input[id=password] {
+    color: black;
+} 
+/* 设置关灯以后的输入框效果 */
+.show-password input {
+    border: 2px dashed white;
+}
+.show-password input:focus {
+    border-color: rgb(255, 255, 145);
+    outline: none;
+}
+
+
+/* #region eye */
+/* 眼眶子，本质上是一个按钮 */
+/* 事实上是隐藏按钮的显示，用eye去刻画眼眶子，伪元素丰富细节 */
+[id=eyeball] {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 1.25rem; 
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+[id=eyeball]:active {
+    transform: translateY(calc(-50%  + 1px));
+}
+.eye {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--border-color);
+    border-radius: calc(1.25rem / 1.5) 0;
+    transform: rotate(45deg);
+    background-color: transparent;
+}
+
+/* 利用伪元素绘制眼睛里面的图案 */
+.eye::before,
+.eye::after {
+    content: "";
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+/* 眼睛里面那一圈，眼白？ */
+.eye::before {
+    width: 65%;
+    height: 65%;
+    border: 2px solid var(--border-color);
+    border-radius: 100%;
+}
+/* 瞳孔 */
+.eye::after {
+    width: 35%;
+    height: 35%;
+    background-color: var(--border-color);
+    border-radius: 100%;
+}
+/* #endregion */
+
+/* #region submit */
+[id=submit] {
+    width: 100%;
+    height: 5rem;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    padding: 10px 0;
+    margin: 30px 0px 40px 0px;
+    box-shadow: 3px 3px 1px 2px rgba(30, 144, 255, 0.2);
+}
+[id=submit]:active {
+    transform: translateY(1px);
+}
+/* #endregion */
+
+/* #region beam*/
+[id=beam] {
+    position: absolute;
+    top: 50%;
+    right: 1.75rem;
+    height: 25vw;
+    width: 100vw;
+    clip-path: polygon(100% 50%, 100% 50%, 0 0, 0 100% );
+    transform: translateY(-50%) rotate(var(--degree , 0));
+    /* 变换原点在最右端的中点 */
+    /* 百分比是相对于元素自身的位置 */
+    /* 第一个参数是横坐标，第二个参数是纵坐标 */
+    transform-origin: 100% 50%;
+    mix-blend-mode: multiply;
+    z-index: 1;
+    pointer-events: none;
+}
+.show-password [id=beam] {
+    background: rgb(255, 255, 145);
+}
+/* #endregion */
