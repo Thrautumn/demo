@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: seashell;
+        }
+        .wrapper {
+            width: 35rem;
+            height: 35rem;
+            padding: 50px 0px 0px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+        .content {
+            width: 80%;
+            height: 100%;
+            /* margin-right: 30px; */
+        }
+        .login {
+            width: 70%;
+        }
+        .log_in {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .login .description {
+            margin: 20px 0px 40px 0px;
+            font-size: 0.8em;
+        }
+        input:focus {
+            outline: none;
+        }
+        [id=email] {
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid grey;
+            width: 80%;
+        }
+        .password-wrapper {
+           width: 100%;
+           margin-top: 10px;
+           display: flex;
+           justify-content: flex-start;
+           align-items: flex-start;
+           padding-bottom: 30px;
+           border-bottom: 1px solid grey;
+        }
+        [id=password] {
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid grey;
+            width: 90%;
+        }
+        [id=next] {
+            width: 32%;
+            border: none;
+            border-radius: 0.25rem;
+            background-color: rgba(104, 9, 116, 0.554);
+            padding: 1rem;
+            margin-left: 50px;
+            color: white;
+            box-shadow: 0px 3px 5px 0px rgba(104, 9, 116, 0.554);
+            font-size: 1rem;
+        }
+        [id=next] span:nth-child(1) {
+            margin-right: 10px;
+        }
+        .forget {
+            text-align: center;
+        }
+        .forget a {
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .option-word {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            margin: 30px 0px;
+            color: grey;
+        }
+        .option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        [id=facebook],
+        [id=google] {
+            width: 48%;
+            padding: 1rem;
+            background-color: white;
+            border: 1px solid grey;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .signup {
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .signup span a {
+            text-decoration: none;
+            font-weight: normal;
+        }
+        [id=next],
+        [id=facebook],
+        [id=google],
+        [id=exit] {
+            cursor: pointer;
+        }
+        .photo {
+            width: 20%;
+            height: 610px;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            position: relative;
+            background-image: url(https://nightchina.net/wp-content/uploads/2017/08/20170830-Steed-%E6%97%A5%E4%B9%8B%E5%86%A0%E5%86%95-NightChina.net_-1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        [id=exit] {
+            background-color: rgba(128, 128, 128, 0.488);
+            border: none;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 2%;
+            right: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="login">
+                <div class="log_in">Log In</div>
+                <div class="description">Log in to your account to upload or download pictures, videos or music.</div>
+            </div>
+            <input type="text" id="email" placeholder="Enter your email address">
+            <div class="password-wrapper">
+                <div class="password">
+                    <input type="text" id="password" placeholder="Please input your password">
+                    <div class="forget"><a href="">Forget password?</a></div>
+                </div> 
+                <button id="next">
+                    <span>Next</span>
+                    <span>→</span>
+                </button>
+            </div>
+               <div class="option-word">Or log in with</div>
+            <div class="option">
+                <button id="facebook">Facebook</button>
+                <button id="google">Google</button>
+            </div>
+            <div class="signup">
+                <span>Don't have an account yet?</span>
+                <span><a href="">Sign up</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="photo">
+        <button id="exit">X</button>
+    </div>
+</body>
+</html>

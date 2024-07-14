@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+* {
+    transition: .2s linear;
+    user-select: none;
+}
+
+/* #region 布局 */
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    background-color: rgb(238, 240, 247);
+    border-radius: 1rem;
+    padding: 0px 100px;
+    height: 400px;
+    width: 500px;
+    display: flex;
+    flex-direction:column ;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.check-wrapper {
+    width: 60%;
+    margin-top: 20px;
+    display: flex;
+    /* 不要居中了，单独调整 */
+    align-self: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+/* #endregion */
+
+
+.title {
+    font-size: 2rem;
+}
+
+.introduction {
+    margin: 20px 0px 30px 0px;
+}
+.input-wrapper {
+    width: 100%;
+    text-align: center;
+}
+[id=input] {
+    width: 63%;
+    font-size: 1rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 1rem;
+    color: black;
+    margin-right: 20px;
+}
+[id=input]:focus {
+    outline: none;
+}
+
+[id=send] {
+    width: 25%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 3px 0px rgb(92, 122, 234);
+    color: white;
+    background-color: rgb(84, 117, 234);
+}
+[id=send]:active {
+    transform: translateY(-1px);
+}
+.send,
+.arrow {
+    display: inline-block;
+}
+.send {
+    margin-right: 10px;
+}
+
+[id=agree] {
+    width: 3rem;
+    height: 1rem;
+}
+    </style>
+</head>
+<body>
+    <form>
+        <div class="content">
+            <div class="title">Let's keep in touch</div>
+            <div class="introduction">
+                <div>Suscribe to keep with fresh news and exciting updates</div>
+                <div>We promise not to spam you!</div>
+            </div>
+            <div class="input-wrapper">
+                <input required type="text" id="input" placeholder="Enter your email address" >
+                <button id="send">
+                    <div class="send">SEND</div>
+                    <div class="arrow">→</div>
+                </button>
+            </div>
+        </div>
+        <div class="check-wrapper">
+            <input type="checkbox" id="agree">
+            <label for="agree">I agree to my email address being stored and used to receive monthly newsletter</label>
+        </div>
+    </form>
+
+    <script>
+        const form = document.querySelector('form')
+        const agree = document.querySelector('#agree')
+
+        form.addEventListener('submit'  , e => {
+            e.preventDefault()
+            if(!agree.checked)
+            {
+                return alert('please agree the terms')
+            }
+        })
+    </script>
+</body>
+</html>

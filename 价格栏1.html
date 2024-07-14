@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            color: white;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(https://nightchina.net/wp-content/uploads/2024/04/20240412-Yilun-%E6%9C%88%E5%BD%B1%E4%B9%8B%E4%B8%8B-NightChina.net_-2048x946.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .outer-wrapper {
+            width: 70rem;
+            height: 40rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            
+        }
+        .inner-wrapper {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .item {
+            width: 30%;
+            margin: 30px 0px;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .item .class {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .item .price {
+            margin: 10px 0px 0px 5px;
+        }
+        .item .price span:nth-child(1) {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .item .price span:nth-child(2) {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .item .description1 {
+            font-size: 0.9rem;
+        }
+        .item .description2 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 20px 0px 30px 0px;
+            width: 90%;
+        }
+        [id=purchase] {
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+            transition: all .2s linear;
+        }
+        [id=purchase]:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+   </style>
+</head>
+<body>
+    <div class="outer-wrapper">
+        <div class="inner-wrapper">
+            <div class="item">
+                <div class="class">Free</div>
+                <div class="price">
+                    <span>$</span>
+                    <span>0</span>
+                </div>
+                <div class="description1">Free for your whole team</div>
+                <div class="description2">For individuals or teams looking to organize anything</div>
+                <button id="purchase">Get started</button>
+            </div>
+            <div class="item">
+                <div class="class">Standard</div>
+                <div class="price">
+                    <span>$</span>
+                    <span>6</span>
+                </div>
+                <div class="description1">Per user per month</div>
+                <div class="description2">For teams that need to manage more work</div>
+                <button id="purchase">Upgraded Now</button>
+            </div>
+            <div class="item">
+                <div class="class">Premium</div>
+                <div class="price">
+                    <span>$</span>
+                    <span>12</span>
+                </div>
+                <div class="description1">Per user per month</div>
+                <div class="description2">Best for teams that need to tarck multiple projects</div>
+                <button id="purchase">Try for free</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

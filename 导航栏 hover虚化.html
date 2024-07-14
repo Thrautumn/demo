@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        * {
+            transition: .2s linear;
+        }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        ul li   {
+            display: block;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+        ul li {
+            margin: 0px 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        ul:hover li {
+            opacity: .2;
+            filter: blur(2px);
+            cursor: pointer;
+        }
+        ul li:hover {
+            opacity: 1;
+            filter: blur(0px);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>HOME</li>
+        <li>ABOUT</li>
+        <li>SERVICES</li>
+        <li>PORTFOLIO</li>
+        <li>CONTACT</li>
+    </ul>
+</body>
+</html>
