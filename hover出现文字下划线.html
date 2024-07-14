@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-decoration</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div {
+            font-size: 2rem;
+            width: 50%;
+            height: 30px;
+        }
+        span {
+            cursor: pointer;
+            background-image: linear-gradient(to right, black, black);
+            /* 移除的时候改为靠右 */
+            background-position: right bottom;
+            background-size: 0px 1px;
+            background-repeat: no-repeat;
+            transition: background-size 1s linear;
+        }
+        span:hover {
+            background-size: 100% 1px;
+            /* 悬浮的时候改为靠左 */
+            background-position-x: left;
+        }   
+    </style>
+</head>
+<body>
+    <!-- 实现效果：鼠标悬浮到标题上时，文字下方出现从左至右的下划线，鼠标离开时，下划线从左至右消失 -->
+    <div>
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum voluptas dolor odit eaque, voluptatem sequi dicta accusantium sint nostrum alias quam omnis est fuga praesentium temporibus consequatur! Quod, possimus eligendi!</span>
+    </div>
+</body>
+</html>
